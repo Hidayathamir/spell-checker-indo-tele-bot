@@ -1,4 +1,5 @@
-from src.main import spell_check
+from decouple import config
 
+from src.main import start_bot
 
-spell_check("you_text_file.txt")
+start_bot(config("bot_token"))

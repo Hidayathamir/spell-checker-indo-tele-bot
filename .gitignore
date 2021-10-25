@@ -1,5 +1,5 @@
-env-dev/
-env-prod/
+env-dev*/
+env-prod*/
 __pycache__/
 .vscode/
 *.yaml
