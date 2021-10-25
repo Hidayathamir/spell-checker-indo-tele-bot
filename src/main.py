@@ -12,7 +12,7 @@ logging.basicConfig(
 logger = logging.getLogger(__name__)
 
 
-def start_bot(token: str) -> None:
+def start_bot(token: str, port: int) -> None:
     """Start the bot."""
     updater = Updater(token)
     dispatcher = updater.dispatcher
@@ -22,5 +22,10 @@ def start_bot(token: str) -> None:
             Filters.text & ~Filters.command, send_result_spell_check
         )
     )
-    updater.start_polling()
+    updater.start_webhook(
+        listen="0.0.0.0",
+        port=port,
+        url_path=token,
+        webhook_url="https://echobot-webhook.herokuapp.com/" + token,
+    )
     updater.idle()

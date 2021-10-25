@@ -1,5 +1,7 @@
-from decouple import config
-
+from os import environ
 from src.main import start_bot
 
-start_bot(config("bot_token"))
+
+bot_token = environ.get("bot_token", "")
+port = environ.get("PORT", 1234)
+start_bot(bot_token, port)
