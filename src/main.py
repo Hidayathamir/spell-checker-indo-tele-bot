@@ -26,6 +26,7 @@ def start_bot(token: str, port: int) -> None:
         listen="0.0.0.0",
         port=port,
         url_path=token,
-        webhook_url="https://echobot-webhook.herokuapp.com/" + token,
+        webhook_url="https://spell-checker-indo-tele-bot.herokuapp.com/"
+        + token,
     )
     updater.idle()
